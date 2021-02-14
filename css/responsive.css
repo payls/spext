@@ -1,0 +1,90 @@
+@media only screen and (max-width: 1399px) {
+	.spext-player-ctrl,
+	.spext-music-info {
+		padding: 25px 20px;
+	}
+	.close.spext-player-ctrl {
+		margin-left: -43.5%;
+	}
+	.spext-player-ctrl {
+		padding-right: 70px;
+	}
+	.spext-music-info {
+		max-width: 600px
+	}
+	.spext-song-details {
+		padding: 0 0 0 30px;
+	}
+	.spext-coverPic {
+		width: 475px;
+	}
+	.spext-track-name {
+		font-size: 28px;
+	}
+	.spext-track-singer {
+		font-size: 22px;
+	}
+	.spext-track-album {
+		font-size: 17px;
+	}
+}
+@media only screen and (max-width: 1199px) {
+	.container {
+		display: flex;
+		min-height: 100vh;
+		justify-content: center;
+		align-items: center;
+	}
+	.spext-player-ctrl,
+	.spext-music-info {
+		max-width: none;
+		width: 60%;
+	}
+	.spext-musicWrp {
+		flex-wrap: wrap;
+		min-height: auto;
+	}
+	.spext-music-info {
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+		box-shadow: none;
+	}
+	.spext-player-ctrl {
+		border-bottom-left-radius: 30px;
+		border-top-right-radius: 0;
+		border-top: 1px solid rgba(170, 155, 190,0.5);
+		padding: 25px 30px;
+	}
+	.spext-hide-ctrlBtn {
+		display: none;
+	}
+	.spext-social-share.open {
+		right: -15px; top: -15px;
+		z-index: 2;
+		padding: 15px;
+	}
+	.open.spext-social-share ul {
+		display: block;
+	}
+	.open.spext-social-share li {
+		margin: 0 0 8px;
+	}
+}
+@media only screen and (max-width: 991px) { 
+	.spext-player-ctrl,
+	.spext-music-info {
+		width: 75%;
+	}
+	.spext-track-name {
+		font-size: 24px;
+	}
+	.spext-track-singer {
+		font-size: 18px;
+	}
+	.spext-track-album {
+		font-size: 15px;
+	}
+	.spext-commonTitle {
+		font-size: 15px;
+	}
+}
