@@ -232,6 +232,16 @@ button:focus {
 	box-shadow: -10px -10px 15px #FFFFFF, 10px 10px 10px rgba(0, 0, 0, 0.05), inset 10px 10px 10px rgba(0, 0, 0, 0.05), inset -10px -10px 20px #FFFFFF;
 	position: relative;
 	z-index: 1;
+	transition: all 0.2s ease-in-out;
+}
+.spext-player-play span {
+	transition: all 0.2s ease-in-out;
+}
+.spext-player-play:hover {
+	background: #fff;
+}
+.spext-player-play:hover span {
+	transform: scale(1.1);
 }
 .spext-player-prev svg path,
 .spext-player-next svg path {
@@ -292,9 +302,6 @@ button:focus {
 
   }
 }
-.spext-player-play::before {
-	background: linear-gradient(327.56deg, #5F30C1 19.23%, #968EF1 81.76%);
-}
 .paused.spext-player-play::before {
 	background: none;
 }
@@ -307,6 +314,7 @@ button:focus {
 .spext-player-prev:active::before,
 .spext-player-next:active::before {
 	background: linear-gradient(327.56deg, #968EF1 19.23%, #5F30C1 81.76%);
+	background: #5F30C1
 }
 .spext-player-play svg,
 .spext-player-prev svg,
@@ -316,7 +324,7 @@ button:focus {
 .spext-player-play:hover svg,
 .spext-player-prev:hover svg,
 .spext-player-next:hover svg {
-	transform: scale(0.95);
+	transform: scale(1.1);
 }
 .spext-player-play {
 	width: 85px; height: 85px;
