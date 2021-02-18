@@ -1,13 +1,9 @@
 @media only screen and (max-width: 1399px) {
-	.spext-player-ctrl,
 	.spext-music-info {
 		padding: 25px 20px;
 	}
-	.close.spext-player-ctrl {
-		margin-left: -43.5%;
-	}
 	.spext-player-ctrl {
-		padding-right: 70px;
+		padding: 25px 70px 25px 50px;
 	}
 	.spext-music-info {
 		max-width: 600px

@@ -13,6 +13,11 @@ main {
 img {
 	max-width: 100%;
 }
+button:focus {
+    border: none;
+    outline: 0 !important;
+    outline-style: none;
+}
 .spext-flex {
 	display: flex;
 	align-items: center;
@@ -47,7 +52,7 @@ img {
 	transition: all 0.5s ease-in-out;
 }
 .close.spext-player-ctrl {
-	margin-left: -39.5%;
+	margin-left: -575px;
 }
 .spext-coverPic {
 	width: 595px;
@@ -96,21 +101,32 @@ img {
 	padding: 0; margin: 0;
 }
 .spext-song-details ul li {
-	background: #F8F8F8;
-	width: 52px; height: 52px;
-	box-shadow: -10px -10px 15px #FFFFFF, 10px 10px 10px rgba(0, 0, 0, 0.05), inset 10px 10px 10px rgba(0, 0, 0, 0.05), inset -10px -10px 20px #FFFFFF;
-	border-radius: 50%; -moz-border-radius: 50%;
-	display: flex; 
-	align-items: center;
-	justify-content: center;
 	margin-right: 23px;
 	transition: all 0.5s linear;
 	position: relative;
 	cursor: pointer;
 }
+.spext-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #f8f8f8;
+    transition: all 100ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: -8px -6px 10px white, 0px 4px 15px rgb(0 0 0 / 15%);
+    cursor: pointer;
+    border: 0;
+    color: #C7C5D0;
+}
+.spext-btn:active {
+    box-shadow: 0 15px 20px rgb(0 0 0 / 2%);
+}
 .spext-song-details ul li:hover {
  	transform: scale(1.1);
- }
+}
 .spext-song-details ul li svg {
  	fill: #C7C5D0;
  	width: 28px;
@@ -153,31 +169,36 @@ img {
 	width: 0;
 	transform: translate(0px);
 	transition: all 0.1s linear;
-}
-.open.spext-social-share li:hover {
-	color: #5F30C1;
-	transition: all 0.3s linear;
-	font-size: 20px;
+	top: -15px;
 }
 .spext-social-share.open {
-	right: -270px;
+	right: -262px;
 	padding: 15px 5px 15px 20px;
 	transform: translate(0px);
 	width: auto;
+	top: -15px;
 }
 .spext-social-share li {
+	width: 50px;
+	height: 50px;
+	transition: all 0s ease-in-out;
+}
+.spext-social-share li .spext-btn {
 	width: 0; 
 	font-size: 0;
 	position: absolute;
+	padding: 0;
 }
-.spext-social-share ul li {
-	transition: all 0s ease-in-out;
-}
-.open.spext-social-share li {
-	width: 52px;
+.open.spext-social-share li .spext-btn {
+	width: 50px;
 	font-size: 20px;
 	transition: all 0.2s linear;
 	cursor: pointer;
+}
+.open.spext-social-share .spext-btn:hover {
+	color: #5F30C1;
+	transition: all 0.2s linear;
+	font-size: 20px;
 }
 /*********************************** Song Details end *******************************/
 .spext-player-settings {
@@ -196,6 +217,9 @@ img {
 	fill: url(#spext-music-color);
 	transform: scale(1.2);
 }
+.spext-playlist-set:active svg {
+	transform: scale(0.7);
+}
 .spext-player-play,
 .spext-player-prev,
 .spext-player-next {
@@ -208,6 +232,10 @@ img {
 	box-shadow: -10px -10px 15px #FFFFFF, 10px 10px 10px rgba(0, 0, 0, 0.05), inset 10px 10px 10px rgba(0, 0, 0, 0.05), inset -10px -10px 20px #FFFFFF;
 	position: relative;
 	z-index: 1;
+}
+.spext-player-prev svg path,
+.spext-player-next svg path {
+	stroke-width: 4px;
 }
 .spext-player-play::before,
 .spext-player-prev::before,
@@ -264,6 +292,22 @@ img {
 
   }
 }
+.spext-player-play::before {
+	background: linear-gradient(327.56deg, #5F30C1 19.23%, #968EF1 81.76%);
+}
+.paused.spext-player-play::before {
+	background: none;
+}
+.spext-player-play:active,
+.spext-player-prev:active,
+.spext-player-next:active {
+	box-shadow: 0 15px 20px rgb(0 0 0 / 2%);
+}
+.spext-player-play:active::before,
+.spext-player-prev:active::before,
+.spext-player-next:active::before {
+	background: linear-gradient(327.56deg, #968EF1 19.23%, #5F30C1 81.76%);
+}
 .spext-player-play svg,
 .spext-player-prev svg,
 .spext-player-next svg{
@@ -289,36 +333,41 @@ img {
 	height: 32px;
 }
 .spext-play-pause:before,
-.spext-play-pause:after {
+.spext-play-pause:after  {
+	transition: all 0.08s ease-in-out;
+}
+.spext-play-pause:before {
+	content: "\f04b";
+	font: normal normal normal 14px/1 FontAwesome;
+	background: none;
+  	display: block;
+    font-size: 34px;
+    left: 5px;
+    color: #fff;
+    position: absolute;
+}
+.paused .spext-play-pause:before,
+.paused .spext-play-pause:after {
 	position: absolute;
 	content: '';
 	display: inline-block;
 	width: 10px; 
 	height: 32px;
-	background: #fff;
+	background: linear-gradient(327.56deg, #5F30C1 19.23%, #968EF1 81.76%);
 	border-radius: 5px;
-	border: 1px solid #fff;
-	transition: all 0.08s ease-in-out;
 	color: #fff;
 }
-.spext-play-pause:before {
+.paused .spext-play-pause:before {
 	left: 0px;
 }
-.spext-play-pause:after {
+.paused .spext-play-pause:after {
 	left: 22px;
 }
-.paused .spext-play-pause:after {
+.spext-play-pause:after {
 	opacity: 0;
 }
-.paused .spext-play-pause::before {
-	content: "\f04b";
-	font: normal normal normal 14px/1 FontAwesome;
-	background: none;
-  	display: block;
-    border: 0;
-    font-size: 34px;
-    left: 5px;
-    color: #fff;
+.paused .spext-play-pause:after {
+	opacity: 1;
 }
 .spext-controls {
 	font-family: "Roboto", sans-serif;
@@ -356,8 +405,12 @@ img {
 	box-sizing: border-box;
 	box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15), inset 10px 10px 10px rgba(0, 0, 0, 0.05), inset -10px -10px 20px #FFFFFF;
 	border-radius: 50%; -moz-border-radius: 50%;
-    right: -8px;
-    top: -19px;
+    left: -3px;
+    top: -16px;
+    margin-left: -21px;
+}
+.spext-pin:active {
+	pointer-events: none;
 }
 .spext-pin::after {
 	content: '';
@@ -369,9 +422,14 @@ img {
 	position: absolute; 
 	top: 8px;
 	right: 8px;
+	transition: all 0.1s linear;
 }
 .spext-pin:hover::after {
-	transform: scale(0.95);
+	transform: scale(0.85);
+}
+.spext-pin:active::after {
+	transform: scale(0.9);
+	background: linear-gradient(327.56deg, #7E74ED 19.23%, #5D24D6 81.76%);
 }
 .spext-time-display {
 	justify-content: space-between;
@@ -386,6 +444,9 @@ img {
 	top: calc(50% - 45px);
 	transition: all 0.5s ease-in-out;
 	cursor: pointer;
+}
+.spext-hide-ctrlBtn:active {
+	transform: scale(1);
 }
 .spext-hide-ctrlBtn:hover {
 	transform: scale(0.85);
