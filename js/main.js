@@ -36,11 +36,16 @@ $(document).ready(function(){
 	player.addEventListener("timeupdate", updateProgress);
 
 	console.log(currentTime, totalTime, formatTime(player.duration));
+	
 
 	function updateProgress() {
 	  var current = player.currentTime;
 	  var percent = (current / player.duration) * 100;
-	  progress.style.width = percent + "%";
+
+	  // progress.style.width = percent + "%";
+	  var width = percent + "%";
+	  $('.spext-progress').animate({ width: width }, 250);
+	  $('#spext-pin').animate({ left: width }, 250);
 
 	  currentTime.textContent = formatTime(current);
 	}
@@ -50,4 +55,17 @@ $(document).ready(function(){
 	  var sec = Math.floor(time % 60);
 	  return min + ":" + (sec < 10 ? "0" + sec : sec);
 	}
+
+	$('.spext-slider').on('click', function(e) {
+	   	var self = $(this),
+	        totalWidth = self.width(),
+	        offsetX = e.offsetX,
+	        offsetPercentage = offsetX / totalWidth;
+
+	       // console.log(totalWidth, offsetX, offsetPercentage)
+	  
+	  	if (e.type === 'click') {
+			player.currentTime = player.duration * offsetPercentage;
+	  	}
+	});
 });
